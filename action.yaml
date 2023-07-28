@@ -1,0 +1,15 @@
+name: 'Tempestus Compute Deployment'
+description: 'A Github action for deploying your trading algorithm to Tempestus Compute'
+inputs:
+  num:
+    description: 'Enter a number'
+    required: true
+    default: "1"
+outputs:
+  num_squared:
+    description: 'Square of the input'
+    # need to specify the extra `value` field for `composite` actions
+    value: ${{ steps.get-square.outputs.num_squared }}
+runs:
+  using: 'node16'
+  main: 'index.js'
